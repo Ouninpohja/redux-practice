@@ -14,7 +14,7 @@
   },
   "scripts": {
     "test": "jest",
-    "test:watch" : "npm test -- --watchAll"
+    "test:watch": "npm test -- --watchAll"
   },
   "repository": {
     "type": "git",
