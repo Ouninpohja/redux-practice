@@ -1,4 +1,5 @@
 import deepFreeze from 'deep-freeze'
+
 const todo = (state, action) => {
   switch(action.type){
     case 'ADD_TODO':
@@ -17,22 +18,24 @@ const todo = (state, action) => {
           ...state,
           completed: !state.completed
         }
-
+    default:
+        return state
   }
 }
-const todos = (state=[], action) => {
 
+const todos = (state=[], action) => {
   switch(action.type){
     case 'ADD_TODO':
       return [
         ...state,
-        todo(state, action)
+        todo(undefined, action)
       ]
     case 'TOGGLE_TODO':
       return state.map(t => todo(t, action))
     default: return state
   }
 }
+
 describe('reducer tests', () => {
   test('add todos', ()=> {
     const beforeState = []
@@ -84,5 +87,39 @@ describe('reducer tests', () => {
       }
     ]
     expect(todos(beforeState, action)).toEqual(expectedState)
+  })
+
+  const visibilityFilter = (state = 'SHOW_ALL', action) => {
+    switch (action.type) {
+      case 'SET_VISIBILITY_FILTER':
+        return action.filter
+        break;
+    
+      default:
+        return state
+        break;
+    }
+  }
+
+  test('visibilityFilter', () => {
+    const beforeState = undefined
+    const action = {
+      type: undefined,
+      filter: undefined
+    }
+    const expectedState = 'SHOW_ALL'
+
+    expect(visibilityFilter(beforeState, action)).toEqual(expectedState)
+  })
+
+  test('setVisibilityFilter', () => {
+    const beforeState = undefined
+    const action = {
+      type: 'SET_VISIBILITY_FILTER',
+      filter: 'SHOW_COMPLETED'
+    }
+    const expectedState = 'SHOW_COMPLETED'
+
+    expect(visibilityFilter(beforeState, action)).toEqual(expectedState)
   })
 })
