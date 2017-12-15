@@ -1,12 +1,4 @@
 {
-	"presets": [
-		[
-			"@babel/preset-env", {
-				"shippedProposals" : true
-			}
-
-		],
-		"@babel/react"
-	],
-	"plugins": ["@babel/plugin-transform-spread"]
+  "presets": ["es2015-loose", "stage-0", "react"],
+  "plugins": ["react-hot-loader/babel"]
 }
