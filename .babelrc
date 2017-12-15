@@ -1,3 +1,12 @@
 {
-  "presets": ["env","react"]
+	"presets": [
+		[
+			"@babel/preset-env", {
+				"shippedProposals" : true
+			}
+
+		],
+		"@babel/react"
+	],
+	"plugins": ["@babel/plugin-transform-spread"]
 }

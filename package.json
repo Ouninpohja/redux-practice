@@ -4,15 +4,16 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "redux": "^3.7.2"
   },
   "devDependencies": {
-    "babel-loader": "^7.1.2",
+    "@babel/core": "^7.0.0-beta.34",
+    "@babel/plugin-transform-spread": "^7.0.0-beta.34",
+    "@babel/preset-env": "^7.0.0-beta.34",
+    "@babel/preset-react": "^7.0.0-beta.34",
+    "babel-loader": "^8.0.0-beta.0",
     "deep-freeze": "0.0.1",
     "html-webpack-plugin": "^2.30.1",
     "jest": "^21.2.1",
@@ -21,7 +22,7 @@
     "webpack-dev-server": "^2.9.7"
   },
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.config.dev.js",
+    "dev": "webpack-dev-server --client-log-level error --config webpack.config.dev.js",
     "test": "jest",
     "test:watch": "npm test -- --watchAll"
   },
